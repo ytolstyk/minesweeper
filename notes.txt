@@ -1,0 +1,31 @@
+Serialization and Persistence
+
+JSON and YAML
+require "json" and require "yaml" - standard library; not gems
+
+JSON:
+  object = {something}
+  object[0].to_json # => saves the object
+  JSON.parse(pokemon[0].to_json) # => pulls out the object
+
+  making a file with JSON:
+  File.read("something.txt", "w") do |row|
+    row << object.to_json
+
+  pulling things out with JSON:
+  JSON.parse(row)
+
+  
+
+YAML:
+  saving to YAML:
+    object.to_yaml
+    returns a string
+
+  parsing from YAML:
+    YAML::load(object.to_yaml)
+    or the returned string of calling object.to_yaml
+    YAML::load(string)
+
+  won't pass information about the class, so we need to require it before we try to load any objects.
+
